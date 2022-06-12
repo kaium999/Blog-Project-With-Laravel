@@ -29,12 +29,14 @@ class userController extends Controller
         //$post->User()->save($user);
        return $user;*/
 
-       $user=User::find(session('logid'));
+       //$user=User::find(session('logid'));
         $post=new Post();
         $post->postTitle=$req->postTitle;
         $post->PostDescription=$req->PostDescription;
         $post->PostDetails=$req->PostDetails;
-        $user->post()->save($post);
+        $post->user_id=session('logid');
+        //$user->post()->save($post);
+        $post->save();
       
     }
 

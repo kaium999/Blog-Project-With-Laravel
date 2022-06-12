@@ -40,24 +40,30 @@
     <body>
       <table>
         <tr>
-
-          <th>Comment Name</th>
-          
+           
+          <th>User Name</th>
+          <th>Commnent Name</th>
+         
+      
         </tr>
-       
+        @foreach ($commentShow as $comments)
             
       
         <tr>
-         
-           <td>
-               @foreach($commentShow as $comments)
-                {{$comments->user->name}}
-                {{$comments->comment_name}}
-               @endforeach
-           </td>
+       
+          <td> {{$comments->user->name}}</td>
+          <td> {{$comments->comment_name}}</td>
+   
+         @if(session('logid')==$comments->user->id)
+          <td>
+            <a href="{{"commnetEdit/" .$comments->id}}">Edit</a>
+            <a href="{{"delete/".$comments->id}}">Delete</a>
+          </td>
           
+         @endif
+           
         </tr>
-
+        @endforeach
       </table>
     </body>
 </html>

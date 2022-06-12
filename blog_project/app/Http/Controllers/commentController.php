@@ -42,5 +42,21 @@ class commentController extends Controller
         return view('ShowComment',compact('commentShow'));
     }
 
+    public function DeleteComment($id){
+        $data=Comment::find($id);
+        $data->delete();
+    }
+    public function commentEdit($id){
+        $data=Comment::find($id);
+        //return $data;
+        return view('commentEdit',compact('data'));
+    }
+    public function commentUpdate(Request $req){
+        $data=Comment::find($req->id);
+        $data->comment_name=$req->editComment;
+        $data->push();
+        //return redirect('');
+    }
+
   
 }

@@ -44,3 +44,7 @@ Route::post('edit',"App\Http\Controllers\userController@updatePost");
 Route::get("AddComment/{id}","App\Http\Controllers\commentController@CommentPage");
 Route::post("AddComment","App\Http\Controllers\commentController@addComment");
 Route::get("AddComment/ShowComment/{id}","App\Http\Controllers\commentController@AllCommentShow");
+
+Route::get('AddComment/ShowComment/delete/{id}',"App\Http\Controllers\commentController@DeleteComment");
+Route::get('AddComment/ShowComment/commnetEdit/{id}',"App\Http\Controllers\commentController@commentEdit");
+Route::post('commnetEdit',"App\Http\Controllers\commentController@commentUpdate");
